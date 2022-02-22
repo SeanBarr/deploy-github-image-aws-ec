@@ -1,0 +1,86 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+     "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    )
+  )
+);
+
+@import "bootstrap/scss/utilities/api";
+@import "~bootstrap/scss/bootstrap";
+@import './pages/skills.scss';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(/assets/stacked-peaks-haikei.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.card-size {
+  max-width: 25rem;
+  height: 25rem;
+}
+
+.repo-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  object-fit: fill;
+}
+
+.switch-opacity {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.card:hover > .switch-opacity {
+  opacity: 1;
+}
+
+.card-body {
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2.6rem;
+}
+
+.card-img {
+  padding-bottom: 1.6rem;
+}
