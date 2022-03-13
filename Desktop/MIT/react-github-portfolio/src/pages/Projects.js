@@ -43,7 +43,7 @@ const Projects = ( {repos} ) => {
       <>
         <Container>
           <h1 className='d-flex align-items-center justify-content-center pb-3'>
-            View My Work
+            Projects
           </h1>
           <Row className='g-4' xxl={3} lg={2} md={1} xs={1}>
             {cards}

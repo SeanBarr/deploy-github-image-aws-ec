@@ -7,8 +7,9 @@ function App() {
   const [repos, setRepos] = useState([]);
   const Home = lazy(() => import('./pages/Home'));
   const Projects = lazy(() => import('./pages/Projects'));
-  const Skills = lazy(() => import('./pages/Skills'));
+  const Skills  = lazy(() => import('./pages/Skills'));
   const Contact = lazy(() => import('./pages/Contact'));
+  const Thanks  = lazy(() => import('./pages/Thanks'));
   const NotFound= lazy(() => import('./pages/NotFound'));
 
   useEffect(() =>{
@@ -19,20 +20,100 @@ function App() {
     console.log(repos);
 
   return (
-    <div className="min-vh-100 d-flex flex-column">
-  <Router>
-  <Header />
-  <main className="flex-grow-1 my-5">
-  <Routes>
-  <Route exact path="/" element={ <Suspense fallback={<div><p>Gone Fishing...</p></div>}>< Home/></Suspense> }/>
-  <Route path="/projects" element={ <Suspense fallback={<div><p>Gone Fishing...</p></div>}>< Projects repos={repos}/></Suspense> }/>
-  <Route path="/skills" element={ <Suspense fallback={<div><p>Gone Fishing...</p></div>}>< Skills/></Suspense> }/>
-  <Route path="/contact" element={ <Suspense fallback={<div><p>Gone Fishing...</p></div>}>< Contact/></Suspense> }/>
-  <Route path="/*" element={ <Suspense fallback={<div><p>Gone Fishing...</p></div>}>< NotFound/></Suspense> }/>
-  </Routes>
-  </main>
-  <Footer />
-  </Router>
+    <div className='min-vh-100 d-flex flex-column'>
+      <Router>
+        <Header />
+        <main className='flex-grow-1 my-5'>
+          <Routes>
+            <Route
+              exact
+              path='/'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path='/projects'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <Projects repos={repos} />
+                </Suspense>
+              }
+            />
+            <Route
+              path='/skills'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <Skills />
+                </Suspense>
+              }
+            />
+            <Route
+              path='/contact'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <Contact />
+                </Suspense>
+              }
+            />
+            <Route
+              path='/thanks'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <Thanks />
+                </Suspense>
+              }
+            />
+            <Route
+              path='/*'
+              element={
+                <Suspense
+                  fallback={
+                    <div>
+                      <p>Gone Fishing...</p>
+                    </div>
+                  }
+                >
+                  <NotFound />
+                </Suspense>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
     </div>
   )};
 

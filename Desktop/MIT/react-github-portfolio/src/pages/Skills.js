@@ -13,7 +13,7 @@ const Skills = () => {
     }
     return (
       <>
-        <h1 className='text-white d-flex align-items-center justify-content-center fw-bold text-large'>
+        <h1 className='text-black d-flex align-items-center justify-content-center fw-bold text-large'>
         My Skills
         </h1>
         <main class='bg-light min-vh-100 py-5'>
